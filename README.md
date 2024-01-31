@@ -7,6 +7,8 @@ C#
 MYSQL Server
 
 ![image](https://github.com/yrusmtz/Blazor-NET/assets/79479231/12bc35c8-48e2-45dd-911d-f64526d34743)
+![image](https://github.com/yrusmtz/Blazor-NET/assets/79479231/b1cd63a3-12c8-44ca-becf-7463150d7481)
+
 
 # Login y Manejo de estado en Blazor
 ![Captura de pantalla 2024-01-31 141325](https://github.com/yrusmtz/Blazor-NET/assets/79479231/b726f8ad-9520-4c07-911c-8085b5ddba63)
