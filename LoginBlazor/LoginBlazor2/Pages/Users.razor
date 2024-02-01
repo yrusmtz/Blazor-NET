@@ -1,0 +1,75 @@
+﻿@page "/Users"
+@using LoginShared
+@inject HttpClient Http
+@using LoginBlazor2.Services
+// Add the namespace where your UserService is located
+@inject UserService UserService
+
+<div class="content__boxed">
+    <div class="content__wrap">
+        <div class="row mt-3">
+            <div class="col-sm-6 col-md-4 col-xl-3 mb-3">
+                @if (users == null)
+                {
+                    <p>
+                        <em>Cargando...</em>
+                    </p>
+                }
+                else
+                {
+                    @foreach (var user in users)
+                    {
+                        <div class="card stylish-card">
+                            <div class="card-body">
+                                <h4 class="card-title">@user.Name</h4>
+                                <h6 class="card-subtitle mb-2 text-muted">@user.Email</h6>
+                                <p class="card-text">@user.Title</p>
+                                @foreach (var role in user.Roles)
+                                {
+                                    <span class="badge badge-primary">@role</span>
+                                }
+                            </div>
+                        </div>
+                        <br/>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.stylish-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.stylish-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.card-subtitle {
+    font-size: 1.2em;
+}
+
+.badge {
+    margin-right: 5px;
+}
+</style>
+
+
+@code {
+    private List<User>? users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        users = await UserService.GetUsers();
+    }
+}
